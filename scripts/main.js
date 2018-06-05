@@ -17,7 +17,7 @@ multiply(4,7);
 
 */
 
-/*
+
 var myImage = document.querySelector('img');
 
 myImage.onclick = function(){
@@ -29,7 +29,7 @@ myImage.onclick = function(){
 	}
 	
 }
-*/
+
 
 
 var myButton = document.querySelector('button');
