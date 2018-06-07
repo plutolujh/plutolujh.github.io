@@ -1,0 +1,69 @@
+<html>
+<body>
+
+
+loop time:<input type="text" class="looptime"></input><input type="submit" value="submit" class="submitCreate"></input><br>
+间隔长度:<input type="text" class="gap" value="100"></input>
+<p class="prtlooptime"></p>
+
+<table style="border:1px solid black;">
+	<tr><td><p class="val1"></p></td></tr>
+	<tr><td><p class="val2"></p></td></tr>
+</table>
+
+
+<p class="statics"></p>
+<button>resetAll</button>
+</body>
+
+<script>
+
+	var val1 = document.querySelector('.val1');
+	var looptime =document.querySelector('.looptime');
+	var submitCreate=document.querySelector('.submitCreate');
+	var prtlooptime=document.querySelector('.prtlooptime');
+	var val2 =document.querySelector('.val2');
+	var gap=document.querySelector('.gap');
+	
+	var button=document.querySelector('button');
+	var statics=document.querySelector('.statics');
+	
+	var myArry = new Array(100);
+	
+	function createLoop(){
+		var gapNum=Number(gap.value);
+		var loopNum = Number(looptime.value);
+		for (var i=1;i<=loopNum;i++){
+			val1.textContent +=i+ ' ';			
+			var randomNum=Math.floor(Math.random()*gapNum)+1;
+			val2.textContent +=randomNum+' ';
+			
+			myArry[randomNum]++;
+		}
+
+		for(var i=1;i<=loopNum;i++){
+			if (myArry[i]>0){
+				statics.textContent=i+':'+myArry[i];
+			}
+		}
+	}
+	
+	
+	submitCreate.addEventListener('click', createLoop);	
+	
+	function resetAll(){
+		val1.textContent='';
+		val2.textContent='';
+		looptime.focus();
+		looptime.value='';
+	}
+
+	button.addEventListener('click', resetAll);	
+
+	
+
+	
+	
+</script>
+
+</html>
