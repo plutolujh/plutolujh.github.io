@@ -1,0 +1,130 @@
+<html>
+<body>
+
+
+循环次数:<input type="text" class="looptime"></input><input type="submit" value="submit" class="submitCreate"></input><br>
+数字范围:<input type="text" class="gap" value="100"></input>
+<p class="prtlooptime"></p>
+
+<table style="border:1px solid black;">
+	<tr><td>第X次:<p class="val1"></p></td></tr>
+	<tr><td>第X次值:<p class="val2"></p></td></tr>
+</table>
+
+
+同值统计:<p class="statics"></p>
+最大重复次数:<p class="maxDup"></p>
+<button>重置</button>
+</body>
+
+<script>
+
+	var val1 = document.querySelector('.val1');
+	var looptime =document.querySelector('.looptime');
+	var submitCreate=document.querySelector('.submitCreate');
+	var prtlooptime=document.querySelector('.prtlooptime');
+	var val2 =document.querySelector('.val2');
+	var gap=document.querySelector('.gap');
+	
+	var button=document.querySelector('button');
+	var statics=document.querySelector('.statics');
+	var lastRandomNum;
+	var myArry = new Array(100);
+	var myDupArry = new Array(100);
+	var maxDuplicate=1;
+	var thisDuplicate=1;
+
+	var maxDup = document.querySelector('.maxDup');
+
+	for (var i=1;i<=100 ;i++ )
+	{
+		myArry[i]=0;
+		myDupArry[i]=0;
+	}
+	
+	function createLoop(){
+		var gapNum=Number(gap.value);
+		var loopNum = Number(looptime.value);
+		for (var i=1;i<=loopNum;i++){
+			val1.textContent +=i+ ' ';	
+			
+			//产生一个随机数
+			var randomNum=Math.floor(Math.random()*gapNum)+1;
+
+			//第一次的时候,随机数赋值给lastRandomNum
+			if(i === 1){
+				lastRandomNum = randomNum;
+			}else{
+			
+				//如果大于第一个数,那么跟第一个数比对	
+				if(lastRandomNum === randomNum){
+						thisDuplicate++;
+						if(i===loopNum){myDupArry[thisDuplicate]++;}
+				}else{
+						myDupArry[thisDuplicate]++;
+						thisDuplicate =1;
+				}
+
+				
+
+				//如果这次重复大于最大的时候,替换最大的重复次数为此次
+				if (thisDuplicate>maxDuplicate)
+				{
+					maxDuplicate = thisDuplicate;
+
+				}
+				
+				
+
+				val2.textContent +=randomNum+' ';
+				myArry[randomNum]++;
+
+				//把这次随机数保存起来
+				lastRandomNum = randomNum;
+			}
+		}
+
+		for(var j=1;j<=gapNum;j++){
+			if(myArry[j]>0)	
+				statics.textContent+=j+':'+myArry[j]+' ';
+			
+		}
+		maxDup.textContent=maxDuplicate;
+
+		/*
+		statics.textContent+=' 其中连续X次一致出现次数:';
+		for (var k=2;k<=maxDuplicate ;k++ )
+		{
+			statics.textContent+=' '+k+':'+myDupArry[k]+' ';
+		}
+		*/	
+			
+	}
+	
+	
+	submitCreate.addEventListener('click', createLoop);	
+	
+	function resetAll(){
+		val1.textContent='';
+		val2.textContent='';
+		looptime.focus();
+		looptime.value='';
+		statics.textContent='';
+		maxDuplicate=0;
+		maxDup.textContent='';
+		for (var i=1;i<=100 ;i++ )
+		{
+			myArry[i]=0;myDupArry[i]=0;
+		}
+		
+	}
+
+	button.addEventListener('click', resetAll);	
+
+	
+
+	
+	
+</script>
+
+</html>
