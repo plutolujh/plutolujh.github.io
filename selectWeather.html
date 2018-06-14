@@ -13,15 +13,15 @@
     var select = document.querySelector('select');
     var para = document.querySelector('p');
   
-    select.addEventLinstener('click',setWeather);
+    select.addEventListener('click',setWeather);
   
     function setWeather(){
       if (select.value==='sunny'){
         para.textContent='you select sunny!!';
-      }else if(select.value==='sunny'){
-         para.textContent='you select sunny!!'; 
-      }else if(select.value==='sunny'){
-        para.textContent='you select sunny!!';
+      }else if(select.value==='rainy'){
+         para.textContent='you select rainy!!'; 
+      }else if(select.value==='snowy'){
+        para.textContent='you select snowy!!';
       }else{
         para.value='';      
       }
