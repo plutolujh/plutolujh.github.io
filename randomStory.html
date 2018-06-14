@@ -1,0 +1,92 @@
+<html>
+<style>
+
+	.story{
+		background-color:orange;
+		width:200px;
+		padding:0px;
+		margin:10px;
+	}
+	
+	.inputContent{
+		font-weight:bold;
+	}
+</style>
+<body>
+
+	<div class="inputContent">Enter custom name:<input type="text" name="uname" id="customname"></input>
+	<br><br>
+	<input type="radio" name="country" id="uk" checked="true" >UK</input>
+	<input type="radio" name="country" id="us">US</input>
+	</div>
+	<br>
+	<button class="randomize">generate story</button>
+		<br><br>
+	<div class="story"></div>
+</body>
+<script>
+//1. COMPLETE VARIABLE AND FUNCTION DEFINITIONS
+
+var customName = document.getElementById('customname');
+var randomize = document.querySelector('.randomize');
+var story = document.querySelector('.story');
+
+function randomValueFromArray(array){
+  return array[Math.floor(Math.random()*array.length)];
+}
+
+var myString ='It was 94 farenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.';
+
+var myArrayX=['Willy the Goblin',
+'Big Daddy',
+'Father Christmas'];
+
+var myArrayY=['the soup kitchen',
+'Disneyland',
+'the White House'];
+
+var myArrayZ=['spontaneously combusted',
+'melted into a puddle on the sidewalk',
+'turned into a slug and crawled away'];
+
+
+
+	
+//3. EVENT LISTENER AND PARTIAL FUNCTION DEFINITION
+
+randomize.addEventListener('click', result);
+
+function result() {
+
+	disString = myString;
+  if(customName.value != '') {
+    var name = customName.value;
+
+	//replace Bob to custom name;
+	var disString =disString.replace('Bob',name);
+	
+
+  }
+
+  if(document.getElementById("uk").checked) {
+    var weight = Math.round(300);
+    var temperature =  Math.round(94);
+
+	weight=Math.round(weight*0.0714286,2);
+	temperature=Math.round((temperature-32)*5/9,2);
+	
+	
+	
+	disString=disString.replace('300 pounds',weight+' stone');
+	disString=disString.replace('94 farenheit',temperature+' centigrade');	
+  }
+  
+	disString = disString.replace(/:insertx:/g,randomValueFromArray(myArrayX));
+	disString = disString.replace(':inserty:',randomValueFromArray(myArrayY));
+	disString = disString.replace(':insertz:',randomValueFromArray(myArrayZ));
+	
+  story.textContent = disString;
+  story.style.visibility = 'visible';
+}
+</script>
+</html>
