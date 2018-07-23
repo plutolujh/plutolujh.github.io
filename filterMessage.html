@@ -1,0 +1,38 @@
+<html>
+<head>
+  <style>
+    .output{
+      border:1px solid blue;
+    }
+  </style> 
+ </head>
+<body>
+<div class="output">  
+  <ul>
+      
+  </ul>
+</div>
+</body>
+<script>
+  
+  var list = document.querySelector('.output ul');
+  list.innerHTML='';
+  var greetings=['Happy Birthday!',
+                 'Messery Christmas my love',
+                 'A happy Christmas to all the family',
+                 'You\'re all I want for Christmas',
+                 'Get well soon'];
+                 
+for (var i=0;i<greetings.length;i++){
+  var input=greetings[i];
+  
+  if(greeting[i]){
+    var result=input;
+    var listItem=document.createElement('li');
+    listItem.textContext=result;
+    list.appendChild(listItem);
+}
+}                 
+
+</script>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<body>
+<label for="weather">Chose and set weather</label>
+  <select id="weather">
+    <option value="">---chose weather---</option>
+    <option value="sunny">sunny</option>
+    <option value="rainy">rainy</option>
+    <option value="snowy">snowy</option>
+  </select>
+  <p></p>
+<script>
+  
+    var select = document.querySelector('select');
+    var para = document.querySelector('p');
+  
+    select.addEventListener('click',setWeather);
+  
+    function setWeather(){
+      if (select.value==='sunny'){
+        para.textContent='you select sunny!!';
+      }else if(select.value==='rainy'){
+         para.textContent='you select rainy!!'; 
+      }else if(select.value==='snowy'){
+        para.textContent='you select snowy!!';
+      }else{
+        para.textContent='';      
+      }
+    }
+  
+  
+</script>
+</body>
+<html>
