@@ -32,12 +32,29 @@ h1{
 <script src="scripts/main.js"></script>
 
 
+<button>Press me</button>
+
 <ul>
 	<li><a href="./guess.html">猜字游戏</a></li>
 	<li><a href="./maxDuplicate.html">重复次数统计</a></li>
 </ul>
 
 </body>
+
+<script>
+
+	var button = document.querySelector('button');
+	
+	button.addEventListener('click',disname);
+	
+	
+	function disname(){
+		var name = prompt('input your name!');
+		
+		alert('welcome '+name+' !');
+	}
+	
+</script>
 </html>
 
 

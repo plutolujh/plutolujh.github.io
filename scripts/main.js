@@ -15,7 +15,7 @@ document.querySelector('html').onclick = function() {
 }
 multiply(4,7);
 
-*/
+
 
 
 var myImage = document.querySelector('img');
@@ -54,7 +54,7 @@ var storedName = localStorage.getItem('name');
 myButton.onclick = function() {
   setUserName();
 }
-
+*/
 /*
 var myButton = document.querySelector('button');
 var myHeading = document.querySelector('h1');
