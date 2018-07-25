@@ -67,23 +67,15 @@
 			*/
 				
 				if(((i+2)%4) === 0){
-					//document.write(j + ' ' );
+					document.write(j + ' ' );
 					document.write(str[i-2]+' ');
-					//document.write('利率:'+str[i-1]+' ');
-					document.write(str[i-1]+' ');
-					
+					document.write('利率:'+str[i-1]+' ');
 					document.write(str[i].slice(0,str[i].indexOf('天'))+'天 ');
 					//document.write(str[i]+'<br>');
 					var newstr = str[i].slice(str[i].indexOf('天')+1,str[i].indexOf('元'));
-					//document.write('金额:'+newstr);
+					document.write('金额:'+newstr);
 					
-					newstr = newstr.replace(/,/g,'');
-					newstr=Number(newstr);
-					document.write(newstr);
-					//document.write(newstr);
-					
-					
-					//document.write(' 状态:'+str[i+1]);
+					document.write(' 状态:'+str[i+1]);
 					
 					if(str[i-2].indexOf('月')!==-1){					
 						printEndDate(str[i-2],monthToDate);					
@@ -100,37 +92,37 @@
 					if(str[i-2].indexOf('年')!==-1){
 						printEndDate(str[i-2],yearEndDate);		
 					}
+					newstr = newstr.replace(/,/g,'');
 					
-					
-				
+					//document.write(newstr);
 					totalmoney += +Number(newstr);
 					document.write('<br>');
 					j++;
 				}				
 			}
 			var totalbills = j-1;
-		//	document.write('<br>');
-		//	document.write('总共笔数:'+totalbills);
-		//	document.write('总共金额:'+totalmoney+'元');
+			document.write('<br>');
+			document.write('总共笔数:'+totalbills);
+			document.write('总共金额:'+totalmoney+'元');
 	
 	}
 	
-	//calByTime(strnewrookie);
+	calByTime(strnewrookie);
 	
-//document.write('<hr>');
-		calByTime(strweek);
-	//document.write('<hr>');
+	document.write('<hr>');
+	calByTime(strweek);
+	document.write('<hr>');
 	calByTime(strmonth);
-	//document.write('<hr>');	
+	document.write('<hr>');	
 	calByTime(strseason);
-	//document.write('<hr>');		
+	document.write('<hr>');	
 	calByTime(stryear);
-	//document.write('<hr>');	
+	document.write('<hr>');	
 	calByTime(strtwowin);
-	//document.write('<hr>');
+	document.write('<hr>');	
 	
-	//calByTime(stryear);
-	//printEndDate('年薪宝JY365270期',yearEndDate);
+	
+	//printEndDate('月薪宝ZT0412252期',monthToDate);
 	
 	function printEndDate(contactNum,endDateStr){
 		var endTimeArr=endDateStr.split(/[ ]+/);
@@ -145,9 +137,7 @@
 		var kindStr = contactNum.replace(/[^a-z]/ig,"");
 		
 		for(var i=0;i<endTimeArr.length;i++){
-			//获取当前的类型
-			var curKindStr = endTimeArr[i].replace(/[^a-z]/ig,"");
-			if(((i+2)%2===0)&&(curKindStr===kindStr)){
+			if(((i+2)%2===0)&&(endTimeArr[i].replace(/[^a-z]/ig,"")===kindStr)){
 				var num1 = endTimeArr[i].replace(/[^0-9]/ig,"");
 			
 				//var num3 = endTimeArr[i+2].replace(/[^0-9]/ig,"");
@@ -157,14 +147,18 @@
 			
 				
 				//如果当前的期数大于等于前面的期数，而小于后面的期数，那么截止日期就是前面期数后面的数组值
-				if(num2>=num1){
-					//msg = ' 截止日期为:'+endTimeArr[i+1];
-					msg = endTimeArr[i+1];
+				if(num2<num1){
+					msg = ' 截止日期为:'+endTimeArr[i-1];
+					break;
+				}
+				if(num2===num1){
+					msg = ' 截止日期为:'+endTimeArr[i+1];
+					break;
 				}
 			}
 		}
 		
-		document.write(' '+msg);
+		document.write(msg);
 		
 	}
 	
