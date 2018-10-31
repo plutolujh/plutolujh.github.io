@@ -1,0 +1,112 @@
+header{
+	height:60px;
+	
+}	
+	
+nav{
+  height: 50px;
+  flex: 100%;
+  display: flex;
+
+	}	
+nav ul,nav li{
+	
+	  float:left;
+	list-style-type:none;
+}
+nav li{
+	
+	width:100px;
+}
+	
+nav li a:hover{
+	
+	background-color:gray;
+}
+	h1{
+		font-size:3em;
+
+		color:#00539F;
+		text-align:center;
+		text-shadow:3px 3px 1px white;
+	}
+	
+	html{
+
+		font-size:16px;
+		padding:0px;
+		margin:0px auto;	
+		background-color:#00539F;
+	}
+	a{
+		font-size:16px;
+	}
+	/*
+	.daywork h2 ,.daywork h5{
+		position:fixed;
+		top:20px;
+		left:40%;
+		display:block;
+		text-align:center;		
+	}	*/
+	body{
+		width:840px;		
+		margin:0 auto;	
+		background-color:#ff9500;		
+		border:5px solid black;
+
+	}
+
+	.daywork{
+		margin:0px auto;
+		/*background:gray;*/
+		border:5px solid white;
+
+	}
+	
+	
+	.daywork h2{
+		color:#00539F;
+		text-align:center;
+	}
+	
+	.daywork li{
+		
+		padding:5px;
+	}
+	
+	img{
+		max-width:800px;
+		max-height:1800px;
+
+		border:3px solid white;	;
+		
+	}
+	
+	.pic ul{
+		list-style-type:none;	
+		display:inline;
+
+	}
+	
+	.pic li{
+		padding-left:20px;
+
+	}
+	
+
+	a{		
+		text-decoration:none;
+	}	
+	
+	a:hover{
+		text-shadow:1px 1px 1px black;
+		color:red;
+	}
+	
+	.footer{
+		height:50px;
+		text-align:right;
+		clear:both;
+	}
+	
