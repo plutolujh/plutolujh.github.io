@@ -8,7 +8,7 @@ html, body {
 html {
   font-size: 10px;
  /* background-color: #a9a9a9;*/
- background-color:blue;
+ background-color:#00539F;
 }
 
 body {
@@ -64,8 +64,10 @@ body > * {
 
 main, header, nav, article, aside, footer, section {
  /*background-color: rgba(0,255,200,0.5);*/
- background-color:rgba(255,255,255,0.5);
+  background-color:rgba(255,255,255,0.6);
   padding: 1%;
+ 
+ border:1px solid yellow;
 }
 
 h1 {
@@ -77,6 +79,7 @@ header img {
   display: block;
   height: 60px;
   padding-top: 20.15px;
+
 }
 
 nav {
@@ -96,6 +99,8 @@ nav li {
   display: inline;
   text-align: center;
   flex: 1;
+  font-size: 2rem;
+  height: 3rem;
 }
 
 nav a, nav span {
@@ -106,27 +111,43 @@ nav a, nav span {
   text-transform: uppercase;
   text-decoration: none;
   color: black;
-
 }
 
+nav a:hover{
+	background-color:gray;
+	display:block;
+}
 /* || main layout */
 
 main {
-  display: flex;
+  display:flex;
+
+  flex-direction:row;
+}
+
+main video{
+	width:200px;
+	height:400px;
 }
 
 article, section {
-  flex: 4;
+  flex:20;
+  flex-wrap:nowrap;
+  justify-content:space-around;
+  align-content:flex-end;
 }
 
 section iframe{
 	width:100%;
 	height:80%;
+	flex:1;
 }
+
 aside {
-  flex:1;
+  flex:5;
   margin-left: 10px;
   padding: 1%;
+
 }
 
 aside a {
